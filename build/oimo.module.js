@@ -2683,7 +2683,7 @@ Object.assign( LinearConstraint.prototype, {
             this.velx *= len;
             this.vely *= len;
             this.velz *= len;
-        }else{
+        }else {
             this.velx = 0;
             this.vely = 0;
             this.velz = 0;
@@ -2946,7 +2946,7 @@ Object.assign( Rotational3Constraint.prototype, {
                     this.limitImpulse1=0;
                 }
                 this.limitVelocity1=this.upperLimit1-angle1;
-            }else{
+            }else {
                 this.limitState1=2;
                 this.limitImpulse1=0;
                 this.limitVelocity1=0;
@@ -2956,7 +2956,7 @@ Object.assign( Rotational3Constraint.prototype, {
                 else if(this.limitVelocity1<-0.02)this.limitVelocity1+=0.02;
                 else this.limitVelocity1=0;
             }
-        }else{
+        }else {
             this.limitState1=2;
             this.limitImpulse1=0;
         }
@@ -2981,7 +2981,7 @@ Object.assign( Rotational3Constraint.prototype, {
                     this.limitImpulse2=0;
                 }
                 this.limitVelocity2=this.upperLimit2-angle2;
-            }else{
+            }else {
                 this.limitState2=2;
                 this.limitImpulse2=0;
                 this.limitVelocity2=0;
@@ -2991,7 +2991,7 @@ Object.assign( Rotational3Constraint.prototype, {
                 else if(this.limitVelocity2<-0.02)this.limitVelocity2+=0.02;
                 else this.limitVelocity2=0;
             }
-        }else{
+        }else {
             this.limitState2=2;
             this.limitImpulse2=0;
         }
@@ -3016,7 +3016,7 @@ Object.assign( Rotational3Constraint.prototype, {
                     this.limitImpulse3=0;
                 }
                 this.limitVelocity3=this.upperLimit3-angle3;
-            }else{
+            }else {
                 this.limitState3=2;
                 this.limitImpulse3=0;
                 this.limitVelocity3=0;
@@ -3026,26 +3026,26 @@ Object.assign( Rotational3Constraint.prototype, {
                 else if(this.limitVelocity3<-0.02)this.limitVelocity3+=0.02;
                 else this.limitVelocity3=0;
             }
-        }else{
+        }else {
             this.limitState3=2;
             this.limitImpulse3=0;
         }
 
         if(this.enableMotor1&&(this.limitState1!=0||enableSpring1)){
             this.maxMotorImpulse1=this.maxMotorForce1*timeStep;
-        }else{
+        }else {
             this.motorImpulse1=0;
             this.maxMotorImpulse1=0;
         }
         if(this.enableMotor2&&(this.limitState2!=0||enableSpring2)){
             this.maxMotorImpulse2=this.maxMotorForce2*timeStep;
-        }else{
+        }else {
             this.motorImpulse2=0;
             this.maxMotorImpulse2=0;
         }
         if(this.enableMotor3&&(this.limitState3!=0||enableSpring3)){
             this.maxMotorImpulse3=this.maxMotorForce3*timeStep;
-        }else{
+        }else {
             this.motorImpulse3=0;
             this.maxMotorImpulse3=0;
         }
@@ -3096,7 +3096,7 @@ Object.assign( Rotational3Constraint.prototype, {
             var dmp=invTimeStep/(k+2*this.limitMotor1.dampingRatio*omega);
             this.cfm1=this.kv00*dmp;
             this.limitVelocity1*=k*dmp;
-        }else{
+        }else {
             this.cfm1=0;
             this.limitVelocity1*=invTimeStep*0.05;
         }
@@ -3107,7 +3107,7 @@ Object.assign( Rotational3Constraint.prototype, {
             dmp=invTimeStep/(k+2*this.limitMotor2.dampingRatio*omega);
             this.cfm2=this.kv11*dmp;
             this.limitVelocity2*=k*dmp;
-        }else{
+        }else {
             this.cfm2=0;
             this.limitVelocity2*=invTimeStep*0.05;
         }
@@ -3118,7 +3118,7 @@ Object.assign( Rotational3Constraint.prototype, {
             dmp=invTimeStep/(k+2*this.limitMotor3.dampingRatio*omega);
             this.cfm3=this.kv22*dmp;
             this.limitVelocity3*=k*dmp;
-        }else{
+        }else {
             this.cfm3=0;
             this.limitVelocity3*=invTimeStep*0.05;
         }
@@ -3628,7 +3628,7 @@ Object.assign( TranslationalConstraint.prototype, {
                 }
                 this.limitVelocity=this.upperLimit-d;
                 if(!enableSpring)d=this.upperLimit;
-            }else{
+            }else {
                 this.limitState=2;
                 this.limitImpulse=0;
                 this.limitVelocity=0;
@@ -3638,14 +3638,14 @@ Object.assign( TranslationalConstraint.prototype, {
                 else if(this.limitVelocity<-0.005)this.limitVelocity+=0.005;
                 else this.limitVelocity=0;
             }
-        }else{
+        }else {
             this.limitState=2;
             this.limitImpulse=0;
         }
 
         if(this.enableMotor&&(this.limitState!=0||enableSpring)){
             this.maxMotorImpulse=this.maxMotorForce*timeStep;
-        }else{
+        }else {
             this.motorImpulse=0;
             this.maxMotorImpulse=0;
         }
@@ -3694,7 +3694,7 @@ Object.assign( TranslationalConstraint.prototype, {
             var dmp=invTimeStep/(k+2*this.limitMotor.dampingRatio*omega);
             this.cfm=this.motorDenom*dmp;
             this.limitVelocity*=k*dmp;
-        }else{
+        }else {
             this.cfm=0;
             this.limitVelocity*=invTimeStep*0.05;
         }
@@ -3871,7 +3871,7 @@ Object.assign( AngularConstraint.prototype, {
         if( len > 0.02 ) {
             len = (0.02-len)/len*invTimeStep*0.05;
             this.vel.multiplyScalar( len );
-        }else{
+        }else {
             this.vel.set(0,0,0);
         }
 
@@ -4173,7 +4173,7 @@ Object.assign( Translational3Constraint.prototype, {
                 }
                 this.limitVelocity1=this.upperLimit1-d1;
                 if(!enableSpring1)d1=this.upperLimit1;
-            }else{
+            }else {
                 this.limitState1=2;
                 this.limitImpulse1=0;
                 this.limitVelocity1=0;
@@ -4183,7 +4183,7 @@ Object.assign( Translational3Constraint.prototype, {
                 else if(this.limitVelocity1<-0.005)this.limitVelocity1+=0.005;
                 else this.limitVelocity1=0;
             }
-        }else{
+        }else {
             this.limitState1=2;
             this.limitImpulse1=0;
         }
@@ -4210,7 +4210,7 @@ Object.assign( Translational3Constraint.prototype, {
                 }
                 this.limitVelocity2=this.upperLimit2-d2;
                 if(!enableSpring2)d2=this.upperLimit2;
-            }else{
+            }else {
                 this.limitState2=2;
                 this.limitImpulse2=0;
                 this.limitVelocity2=0;
@@ -4220,7 +4220,7 @@ Object.assign( Translational3Constraint.prototype, {
                 else if(this.limitVelocity2<-0.005)this.limitVelocity2+=0.005;
                 else this.limitVelocity2=0;
             }
-        }else{
+        }else {
             this.limitState2=2;
             this.limitImpulse2=0;
         }
@@ -4247,7 +4247,7 @@ Object.assign( Translational3Constraint.prototype, {
                 }
                 this.limitVelocity3=this.upperLimit3-d3;
                 if(!enableSpring3)d3=this.upperLimit3;
-            }else{
+            }else {
                 this.limitState3=2;
                 this.limitImpulse3=0;
                 this.limitVelocity3=0;
@@ -4257,28 +4257,28 @@ Object.assign( Translational3Constraint.prototype, {
                 else if(this.limitVelocity3<-0.005)this.limitVelocity3+=0.005;
                 else this.limitVelocity3=0;
             }
-        }else{
+        }else {
             this.limitState3=2;
             this.limitImpulse3=0;
         }
 
         if(this.enableMotor1&&(this.limitState1!=0||enableSpring1)){
             this.maxMotorImpulse1=this.maxMotorForce1*timeStep;
-        }else{
+        }else {
             this.motorImpulse1=0;
             this.maxMotorImpulse1=0;
         }
 
         if(this.enableMotor2&&(this.limitState2!=0||enableSpring2)){
             this.maxMotorImpulse2=this.maxMotorForce2*timeStep;
-        }else{
+        }else {
             this.motorImpulse2=0;
             this.maxMotorImpulse2=0;
         }
 
         if(this.enableMotor3&&(this.limitState3!=0||enableSpring3)){
             this.maxMotorImpulse3=this.maxMotorForce3*timeStep;
-        }else{
+        }else {
             this.motorImpulse3=0;
             this.maxMotorImpulse3=0;
         }
@@ -4400,7 +4400,7 @@ Object.assign( Translational3Constraint.prototype, {
             var dmp=invTimeStep/(k+2*this.limitMotor1.dampingRatio*omega);
             this.cfm1=this.kv00*dmp;
             this.limitVelocity1*=k*dmp;
-        }else{
+        }else {
             this.cfm1=0;
             this.limitVelocity1*=invTimeStep*0.05;
         }
@@ -4410,7 +4410,7 @@ Object.assign( Translational3Constraint.prototype, {
             dmp=invTimeStep/(k+2*this.limitMotor2.dampingRatio*omega);
             this.cfm2=this.kv11*dmp;
             this.limitVelocity2*=k*dmp;
-        }else{
+        }else {
             this.cfm2=0;
             this.limitVelocity2*=invTimeStep*0.05;
         }
@@ -4420,7 +4420,7 @@ Object.assign( Translational3Constraint.prototype, {
             dmp=invTimeStep/(k+2*this.limitMotor3.dampingRatio*omega);
             this.cfm3=this.kv22*dmp;
             this.limitVelocity3*=k*dmp;
-        }else{
+        }else {
             this.cfm3=0;
             this.limitVelocity3*=invTimeStep*0.05;
         }
@@ -5615,7 +5615,7 @@ Object.assign( Contact.prototype, {
                         minDistance=distance1;
                         index=j;
                     }
-                }else{
+                }else {
                     if(distance2<minDistance){
                         minDistance=distance2;
                         index=j;
@@ -5631,7 +5631,7 @@ Object.assign( Contact.prototype, {
                 this.buffer[numBuffers]=tmp;
                 p.normalImpulse=tmp.impulse;
                 p.warmStarted=true;
-            }else{
+            }else {
                 p.normalImpulse=0;
                 p.warmStarted=false;
             }
@@ -6559,7 +6559,7 @@ Object.assign( SAPAxis.prototype, {
             if(e==min||e==max){
                 if(minIndex==-1){
                     minIndex=i;
-                }else{
+                }else {
                     maxIndex=i;
                 break;
                 }
@@ -6640,13 +6640,13 @@ Object.assign( SAPAxis.prototype, {
                     stack[count++] = i - 1;
                     stack[count++] = i + 1;
                     stack[count++] = right;
-                }else{
+                }else {
                     stack[count++] = i + 1;
                     stack[count++] = right;
                     stack[count++] = left;
                     stack[count++] = i - 1;
                 }
-            }else{
+            }else {
                 for( i = left + 1; i <= right; i++ ) {
                     tmp = elements[i];
                     pivot = tmp.value;
@@ -6673,7 +6673,7 @@ Object.assign( SAPAxis.prototype, {
         for(var i = 1, l = this.numElements; i<l; i++){
             if(this.elements[i].max){
                 num--;
-            }else{
+            }else {
                 sum += num;
                 num++;
             }
@@ -6896,7 +6896,7 @@ SAPBroadPhase.prototype = Object.assign( Object.create( BroadPhase.prototype ), 
             axis2.sort();
             elementsD = axis1.elements;
             elementsS = axis2.elements;
-        }else{
+        }else {
             axis1 = this.axesS[this.index2];
             axis1.sort();
             elementsD = axis2.elements;
@@ -6916,14 +6916,14 @@ SAPBroadPhase.prototype = Object.assign( Object.create( BroadPhase.prototype ), 
                 e1 = elementsD[p];
                 dyn = true;
                 p++;
-            }else{
+            }else {
                 var d = elementsD[p];
                 var s = elementsS[q];
                 if( d.value < s.value ){
                     e1 = d;
                     dyn = true;
                     p++;
-                }else{
+                }else {
                     e1 = s;
                     dyn = false;
                     q++;
@@ -6954,24 +6954,24 @@ SAPBroadPhase.prototype = Object.assign( Object.create( BroadPhase.prototype ), 
                     }
                     e1.pair = activeD;
                     activeD = e1;
-                }else{
+                }else {
                     e1.pair = activeS;
                     activeS = e1;
                 }
-            }else{
+            }else {
                 var min = e1.pair;
                 if( dyn ){
                     if( min == activeD ){
                         activeD = activeD.pair;
                         continue;
-                    }else{
+                    }else {
                         e1 = activeD;
                     }
-                }else{
+                }else {
                     if( min == activeS ){
                         activeS = activeS.pair;
                         continue;
-                    }else{
+                    }else {
                         e1 = activeS;
                     }
                 }
@@ -7067,7 +7067,7 @@ Object.assign( DBVT.prototype, {
             if(c1.proxy!=null){
                 // leaf cost = area(combined aabb)
                 discendingCost1+=this.aabb.surfaceArea();
-            }else{
+            }else {
                 // node cost = area(combined aabb) - area(old aabb)
                 discendingCost1+=this.aabb.surfaceArea()-c1b.surfaceArea();
             }
@@ -7076,20 +7076,20 @@ Object.assign( DBVT.prototype, {
             if(c2.proxy!=null){
                 // leaf cost = area(combined aabb)
                 discendingCost2+=this.aabb.surfaceArea();
-            }else{
+            }else {
                 // node cost = area(combined aabb) - area(old aabb)
                 discendingCost2+=this.aabb.surfaceArea()-c2b.surfaceArea();
             }
             if(discendingCost1<discendingCost2){
                 if(creatingCost<discendingCost1){
                     break;// stop descending
-                }else{
+                }else {
                     sibling = c1;// descend into first child
                 }
-            }else{
+            }else {
                 if(creatingCost<discendingCost2){
                     break;// stop descending
-                }else{
+                }else {
                     sibling = c2;// descend into second child
                 }
             }
@@ -7098,7 +7098,7 @@ Object.assign( DBVT.prototype, {
         var newParent;
         if(this.numFreeNodes>0){
             newParent = this.freeNodes[--this.numFreeNodes];
-        }else{
+        }else {
             newParent = new DBVTNode();
         }
 
@@ -7112,11 +7112,11 @@ Object.assign( DBVT.prototype, {
         if(sibling == this.root){
             // replace root
             this.root = newParent;
-        }else{
+        }else {
             // replace child
             if(oldParent.child1 == sibling){
                 oldParent.child1 = newParent;
-            }else{
+            }else {
                 oldParent.child2 = newParent;
             }
         }
@@ -7145,7 +7145,7 @@ Object.assign( DBVT.prototype, {
         var sibling;
         if(parent.child1==leaf){
             sibling=parent.child2;
-        }else{
+        }else {
             sibling=parent.child1;
         }
         if(parent==this.root){
@@ -7157,7 +7157,7 @@ Object.assign( DBVT.prototype, {
         sibling.parent = grandParent;
         if(grandParent.child1 == parent ) {
             grandParent.child1 = sibling;
-        }else{
+        }else {
             grandParent.child2 = sibling;
         }
         if(this.numFreeNodes<16384){
@@ -7227,7 +7227,7 @@ Object.assign( DBVT.prototype, {
                 l.aabb.combine(ll.aabb,node.aabb);
                 t=llh-nh;
                 l.height=llh-(t&t>>31)+1;
-            }else{
+            }else {
                 // set N to L-L
                 l.child1=node;
                 node.parent=l;
@@ -7261,10 +7261,10 @@ Object.assign( DBVT.prototype, {
             if(p!=null){
                 if(p.child1==node){
                     p.child1=l;
-                }else{
+                }else {
                     p.child2=l;
                 }
-            }else{
+            }else {
                 this.root=l;
             }
             l.parent=p;
@@ -7304,7 +7304,7 @@ Object.assign( DBVT.prototype, {
                 r.aabb.combine(rl.aabb,node.aabb);
                 t = rlh-nh;
                 r.height = rlh-(t&t>>31)+1;
-            }else{
+            }else {
                 // set N to R-L
                 r.child1 = node;
                 node.parent = r;
@@ -7336,10 +7336,10 @@ Object.assign( DBVT.prototype, {
             if(p!=null){
                 if(p.child1==node){
                     p.child1=r;
-                }else{
+                }else {
                     p.child2=r;
                 }
-            }else{
+            }else {
                 this.root=r;
             }
             r.parent=p;
@@ -7475,7 +7475,7 @@ DBVTBroadPhase.prototype = Object.assign( Object.create( BroadPhase.prototype ),
 
                 this.addPair(s1,s2);
 
-            }else{
+            }else {
 
                 if ( n1.aabb.intersectTest( n2.aabb ) ) continue;
                 
@@ -7495,7 +7495,7 @@ DBVTBroadPhase.prototype = Object.assign( Object.create( BroadPhase.prototype ),
                     this.stack[stackCount++] = n2;
                     this.stack[stackCount++] = n1.child2;
                     this.stack[stackCount++] = n2;
-                }else{
+                }else {
                     this.stack[stackCount++] = n1;
                     this.stack[stackCount++] = n2.child1;
                     this.stack[stackCount++] = n1;
@@ -7576,7 +7576,7 @@ BoxBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDetec
         if(shape1.id<shape2.id){
             b1=(shape1);
             b2=(shape2);
-        }else{
+        }else {
             b1=(shape2);
             b2=(shape1);
         }
@@ -7834,7 +7834,7 @@ BoxBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDetec
             len2=dot1*h2+dot2*d2;
             overlap7=len-len1-len2;
             if(overlap7>0)return;
-        }else{
+        }else {
             right7=false;
             overlap7=0;
             invalid7=true;
@@ -7861,7 +7861,7 @@ BoxBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDetec
             len2=dot1*w2+dot2*d2;
             overlap8=len-len1-len2;
             if(overlap8>0)return;
-        }else{
+        }else {
             right8=false;
             overlap8=0;
             invalid8=true;
@@ -7888,7 +7888,7 @@ BoxBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDetec
             len2=dot1*w2+dot2*h2;
             overlap9=len-len1-len2;
             if(overlap9>0)return;
-        }else{
+        }else {
             right9=false;
             overlap9=0;
             invalid9=true;
@@ -7915,7 +7915,7 @@ BoxBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDetec
             len2=dot1*h2+dot2*d2;
             overlapa=len-len1-len2;
             if(overlapa>0)return;
-        }else{
+        }else {
             righta=false;
             overlapa=0;
             invalida=true;
@@ -7942,7 +7942,7 @@ BoxBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDetec
             len2=dot1*w2+dot2*d2;
             overlapb=len-len1-len2;
             if(overlapb>0)return;
-        }else{
+        }else {
             rightb=false;
             overlapb=0;
             invalidb=true;
@@ -7969,7 +7969,7 @@ BoxBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDetec
             len2=dot1*w2+dot2*h2;
             overlapc=len-len1-len2;
             if(overlapc>0)return;
-        }else{
+        }else {
             rightc=false;
             overlapc=0;
             invalidc=true;
@@ -7996,7 +7996,7 @@ BoxBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDetec
             len2=dot1*h2+dot2*d2;
             overlapd=len-len1-len2;
             if(overlapd>0)return;
-        }else{
+        }else {
             rightd=false;
             overlapd=0;
             invalidd=true;
@@ -8023,7 +8023,7 @@ BoxBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDetec
             len2=dot1*w2+dot2*d2;
             overlape=len-len1-len2;
             if(overlape>0)return;
-        }else{
+        }else {
             righte=false;
             overlape=0;
             invalide=true;
@@ -8050,7 +8050,7 @@ BoxBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDetec
             len2=dot1*w2+dot2*h2;
             overlapf=len-len1-len2;
             if(overlapf>0)return;
-        }else{
+        }else {
             rightf=false;
             overlapf=0;
             invalidf=true;
@@ -8174,7 +8174,7 @@ BoxBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDetec
             if(right){
                 cx=p1x+d1x; cy=p1y+d1y;  cz=p1z+d1z;
                 nx=a1x; ny=a1y; nz=a1z;
-            }else{
+            }else {
                 cx=p1x-d1x; cy=p1y-d1y; cz=p1z-d1z;
                 nx=-a1x; ny=-a1y; nz=-a1z;
             }
@@ -8187,7 +8187,7 @@ BoxBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDetec
             if(right){
                 cx=p1x+d2x; cy=p1y+d2y; cz=p1z+d2z;
                 nx=a2x; ny=a2y; nz=a2z;
-            }else{
+            }else {
                 cx=p1x-d2x; cy=p1y-d2y; cz=p1z-d2z;
                 nx=-a2x; ny=-a2y; nz=-a2z;
             }
@@ -8200,7 +8200,7 @@ BoxBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDetec
             if(right){
                 cx=p1x+d3x; cy=p1y+d3y; cz=p1z+d3z;
                 nx=a3x; ny=a3y; nz=a3z;
-            }else{
+            }else {
                 cx=p1x-d3x; cy=p1y-d3y; cz=p1z-d3z;
                 nx=-a3x; ny=-a3y; nz=-a3z;
             }
@@ -8214,7 +8214,7 @@ BoxBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDetec
             if(!right){
                 cx=p2x+d4x; cy=p2y+d4y; cz=p2z+d4z;
                 nx=a4x; ny=a4y; nz=a4z;
-            }else{
+            }else {
                 cx=p2x-d4x; cy=p2y-d4y; cz=p2z-d4z;
                 nx=-a4x; ny=-a4y; nz=-a4z;
             }
@@ -8228,7 +8228,7 @@ BoxBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDetec
             if(!right){
                 cx=p2x+d5x; cy=p2y+d5y; cz=p2z+d5z;
                 nx=a5x; ny=a5y; nz=a5z;
-            }else{
+            }else {
                 cx=p2x-d5x; cy=p2y-d5y; cz=p2z-d5z;
                 nx=-a5x; ny=-a5y; nz=-a5z;
             }
@@ -8242,7 +8242,7 @@ BoxBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDetec
             if(!right){
                 cx=p2x+d6x; cy=p2y+d6y; cz=p2z+d6z;
                 nx=a6x; ny=a6y; nz=a6z;
-            }else{
+            }else {
                 cx=p2x-d6x; cy=p2y-d6y; cz=p2z-d6z;
                 nx=-a6x; ny=-a6y; nz=-a6z;
             }
@@ -8510,7 +8510,7 @@ BoxBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDetec
                 q4x=V1[15]; q4y=V1[16]; q4z=V1[17];//vertex6
             }
 
-        }else{
+        }else {
             dot=a4x*nx+a4y*ny+a4z*nz;
             if(dot<minDot){
                 minDot=dot;
@@ -8622,7 +8622,7 @@ BoxBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDetec
                     this.clipVertices2[index]=x2;
                     this.clipVertices2[index+1]=y2;
                     this.clipVertices2[index+2]=z2;
-                }else{
+                }else {
                     index=numAddedClipVertices*3;
                     numAddedClipVertices++;
                     t=dot1/(dot1-dot2);
@@ -8630,7 +8630,7 @@ BoxBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDetec
                     this.clipVertices2[index+1]=y1+(y2-y1)*t;
                     this.clipVertices2[index+2]=z1+(z2-z1)*t;
                 }
-            }else{
+            }else {
                 if(dot2>0){
                     index=numAddedClipVertices*3;
                     numAddedClipVertices++;
@@ -8675,7 +8675,7 @@ BoxBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDetec
                     this.clipVertices1[index]=x2;
                     this.clipVertices1[index+1]=y2;
                     this.clipVertices1[index+2]=z2;
-                }else{
+                }else {
                     index=numAddedClipVertices*3;
                     numAddedClipVertices++;
                     t=dot1/(dot1-dot2);
@@ -8683,7 +8683,7 @@ BoxBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDetec
                     this.clipVertices1[index+1]=y1+(y2-y1)*t;
                     this.clipVertices1[index+2]=z1+(z2-z1)*t;
                 }
-            }else{
+            }else {
                 if(dot2>0){
                     index=numAddedClipVertices*3;
                     numAddedClipVertices++;
@@ -8728,7 +8728,7 @@ BoxBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDetec
                     this.clipVertices2[index]=x2;
                     this.clipVertices2[index+1]=y2;
                     this.clipVertices2[index+2]=z2;
-                }else{
+                }else {
                     index=numAddedClipVertices*3;
                     numAddedClipVertices++;
                     t=dot1/(dot1-dot2);
@@ -8736,7 +8736,7 @@ BoxBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDetec
                     this.clipVertices2[index+1]=y1+(y2-y1)*t;
                     this.clipVertices2[index+2]=z1+(z2-z1)*t;
                 }
-            }else{
+            }else {
                 if(dot2>0){
                     index=numAddedClipVertices*3;
                     numAddedClipVertices++;
@@ -8781,7 +8781,7 @@ BoxBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDetec
                     this.clipVertices1[index]=x2;
                     this.clipVertices1[index+1]=y2;
                     this.clipVertices1[index+2]=z2;
-                }else{
+                }else {
                     index=numAddedClipVertices*3;
                     numAddedClipVertices++;
                     t=dot1/(dot1-dot2);
@@ -8789,7 +8789,7 @@ BoxBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDetec
                     this.clipVertices1[index+1]=y1+(y2-y1)*t;
                     this.clipVertices1[index+2]=z1+(z2-z1)*t;
                 }
-            }else{
+            }else {
                 if(dot2>0){
                     index=numAddedClipVertices*3;
                     numAddedClipVertices++;
@@ -8906,7 +8906,7 @@ BoxBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDetec
             dot=(x1-cx)*nx+(y1-cy)*ny+(z1-cz)*nz;
             if(dot<0) manifold.addPoint(x1,y1,z1,nx,ny,nz,dot,flipped);
             
-        }else{
+        }else {
             //i = numClipVertices;
             //while(i--){
             for(i=0;i<numClipVertices;i++){
@@ -9177,7 +9177,7 @@ BoxCylinderCollisionDetector.prototype = Object.assign( Object.create( Collision
         v12x=v42x;
         v12y=v42y;
         v12z=v42z;
-        }else{
+        }else {
         v3x=v4x;
         v3y=v4y;
         v3z=v4z;
@@ -9188,7 +9188,7 @@ BoxCylinderCollisionDetector.prototype = Object.assign( Object.create( Collision
         v32y=v42y;
         v32z=v42z;
         }
-        }else{
+        }else {
         if(
         (v4y*v3z-v4z*v3y)*v0x+
         (v4z*v3x-v4x*v3z)*v0y+
@@ -9203,7 +9203,7 @@ BoxCylinderCollisionDetector.prototype = Object.assign( Object.create( Collision
         v22x=v42x;
         v22y=v42y;
         v22z=v42z;
-        }else{
+        }else {
         v1x=v4x;
         v1y=v4y;
         v1z=v4z;
@@ -9264,18 +9264,18 @@ BoxCylinderCollisionDetector.prototype = Object.assign( Object.create( Collision
         ox=rad;
         oy=-hh;
         oz=0;
-        }else{
+        }else {
         ox=rad;
         oy=hh;
         oz=0;
         }
-        }else{
+        }else {
         len=c.radius/_Math.sqrt(len);
         if(ldy<0){
         ox=radx*len;
         oy=-hh;
         oz=radz*len;
-        }else{
+        }else {
         ox=radx*len;
         oy=hh;
         oz=radz*len;
@@ -9295,7 +9295,7 @@ BoxCylinderCollisionDetector.prototype = Object.assign( Object.create( Collision
         if(this.flip){
         b=shape2;
         c=shape1;
-        }else{
+        }else {
         b=shape1;
         c=shape2;
         }
@@ -9371,7 +9371,7 @@ BoxCylinderCollisionDetector.prototype = Object.assign( Object.create( Collision
         if(dotd>dotc)state=3;
         else state=4;
         }else state=4;
-        }else{
+        }else {
         if(dotw>0.999)state=1;
         else if(doth>0.999)state=2;
         else if(dotd>0.999)state=3;
@@ -9440,7 +9440,7 @@ BoxCylinderCollisionDetector.prototype = Object.assign( Object.create( Collision
         nx=-ncx;
         ny=-ncy;
         nz=-ncz;
-        }else{
+        }else {
         ccx=pcx+dcx;
         ccy=pcy+dcy;
         ccz=pcz+dcz;
@@ -9609,7 +9609,7 @@ BoxCylinderCollisionDetector.prototype = Object.assign( Object.create( Collision
         if(pd<=0)manifold.addPoint(v3x,v3y,v3z,-nx,-ny,-nz,pd,this.flip);
         pd=nx*(v4x-ccx)+ny*(v4y-ccy)+nz*(v4z-ccz);
         if(pd<=0)manifold.addPoint(v4x,v4y,v4z,-nx,-ny,-nz,pd,this.flip);
-        }else{
+        }else {
         switch(state){
         case 1:
         if(right1){
@@ -9619,7 +9619,7 @@ BoxCylinderCollisionDetector.prototype = Object.assign( Object.create( Collision
         nx=nwx;
         ny=nwy;
         nz=nwz;
-        }else{
+        }else {
         cbx=pbx-dwx;
         cby=pby-dwy;
         cbz=pbz-dwz;
@@ -9644,7 +9644,7 @@ BoxCylinderCollisionDetector.prototype = Object.assign( Object.create( Collision
         nx=nhx;
         ny=nhy;
         nz=nhz;
-        }else{
+        }else {
         cbx=pbx-dhx;
         cby=pby-dhy;
         cbz=pbz-dhz;
@@ -9669,7 +9669,7 @@ BoxCylinderCollisionDetector.prototype = Object.assign( Object.create( Collision
         nx=ndx;
         ny=ndy;
         nz=ndz;
-        }else{
+        }else {
         cbx=pbx-ddx;
         cby=pby-ddy;
         cbz=pbz-ddz;
@@ -9697,7 +9697,7 @@ BoxCylinderCollisionDetector.prototype = Object.assign( Object.create( Collision
         tx=-ny;
         ty=nz;
         tz=nx;
-        }else{
+        }else {
         tx=nx;
         ty=ny;
         tz=nz;
@@ -9797,7 +9797,7 @@ BoxCylinderCollisionDetector.prototype = Object.assign( Object.create( Collision
         //manifold.addPoint(px,py,pz,nx,ny,nz,pd,b,c,3,0,false);
         manifold.addPoint(px,py,pz,nx,ny,nz,pd,this.flip);
         }
-        }else{
+        }else {
         sx=tx;
         sy=ty;
         sz=tz;
@@ -9809,7 +9809,7 @@ BoxCylinderCollisionDetector.prototype = Object.assign( Object.create( Collision
         ex=tx+dcx*2;
         ey=ty+dcy*2;
         ez=tz+dcz*2;
-        }else{
+        }else {
         ex=tx-dcx*2;
         ey=ty-dcy*2;
         ez=tz-dcz*2;
@@ -10211,7 +10211,7 @@ CylinderCylinderCollisionDetector.prototype = Object.assign( Object.create( Coll
         v12x=v42x;
         v12y=v42y;
         v12z=v42z;
-        }else{
+        }else {
         v3x=v4x;
         v3y=v4y;
         v3z=v4z;
@@ -10222,7 +10222,7 @@ CylinderCylinderCollisionDetector.prototype = Object.assign( Object.create( Coll
         v32y=v42y;
         v32z=v42z;
         }
-        }else{
+        }else {
         if(
         (v4y*v3z-v4z*v3y)*v0x+
         (v4z*v3x-v4x*v3z)*v0y+
@@ -10237,7 +10237,7 @@ CylinderCylinderCollisionDetector.prototype = Object.assign( Object.create( Coll
         v22x=v42x;
         v22y=v42y;
         v22z=v42z;
-        }else{
+        }else {
         v1x=v4x;
         v1y=v4y;
         v1z=v4z;
@@ -10273,18 +10273,18 @@ CylinderCylinderCollisionDetector.prototype = Object.assign( Object.create( Coll
         ox=rad;
         oy=-hh;
         oz=0;
-        }else{
+        }else {
         ox=rad;
         oy=hh;
         oz=0;
         }
-        }else{
+        }else {
         len=c.radius/_Math.sqrt(len);
         if(ldy<0){
         ox=radx*len;
         oy=-hh;
         oz=radz*len;
-        }else{
+        }else {
         ox=radx*len;
         oy=hh;
         oz=radz*len;
@@ -10304,7 +10304,7 @@ CylinderCylinderCollisionDetector.prototype = Object.assign( Object.create( Coll
         if(shape1.id<shape2.id){
             c1=shape1;
             c2=shape2;
-        }else{
+        }else {
             c1=shape2;
             c2=shape1;
         }
@@ -10411,7 +10411,7 @@ CylinderCylinderCollisionDetector.prototype = Object.assign( Object.create( Coll
         nx=n1x;
         ny=n1y;
         nz=n1z;
-        }else{
+        }else {
         c1x=p1x-d1x;
         c1y=p1y-d1y;
         c1z=p1z-d1z;
@@ -10429,7 +10429,7 @@ CylinderCylinderCollisionDetector.prototype = Object.assign( Object.create( Coll
         tx=-ny;
         ty=nz;
         tz=nx;
-        }else{
+        }else {
         tx=nx;
         ty=ny;
         tz=nz;
@@ -10521,7 +10521,7 @@ CylinderCylinderCollisionDetector.prototype = Object.assign( Object.create( Coll
         pz=c1z+tz;
         manifold.addPoint(px,py,pz,nx,ny,nz,pd,false);
         }
-        }else{
+        }else {
         sx=tx;
         sy=ty;
         sz=tz;
@@ -10533,7 +10533,7 @@ CylinderCylinderCollisionDetector.prototype = Object.assign( Object.create( Coll
         ex=tx+n2x*h2*2;
         ey=ty+n2y*h2*2;
         ez=tz+n2z*h2*2;
-        }else{
+        }else {
         ex=tx-n2x*h2*2;
         ey=ty-n2y*h2*2;
         ez=tz-n2z*h2*2;
@@ -10588,7 +10588,7 @@ CylinderCylinderCollisionDetector.prototype = Object.assign( Object.create( Coll
         nx=-n2x;
         ny=-n2y;
         nz=-n2z;
-        }else{
+        }else {
         c2x=p2x+d2x;
         c2y=p2y+d2y;
         c2z=p2z+d2z;
@@ -10606,7 +10606,7 @@ CylinderCylinderCollisionDetector.prototype = Object.assign( Object.create( Coll
         tx=-ny;
         ty=nz;
         tz=nx;
-        }else{
+        }else {
         tx=nx;
         ty=ny;
         tz=nz;
@@ -10698,7 +10698,7 @@ CylinderCylinderCollisionDetector.prototype = Object.assign( Object.create( Coll
         pz=c2z+tz;
         manifold.addPoint(px,py,pz,-nx,-ny,-nz,pd,false);
         }
-        }else{
+        }else {
         sx=tx;
         sy=ty;
         sz=tz;
@@ -10710,7 +10710,7 @@ CylinderCylinderCollisionDetector.prototype = Object.assign( Object.create( Coll
         ex=tx+n1x*h1*2;
         ey=ty+n1y*h1*2;
         ez=tz+n1z*h1*2;
-        }else{
+        }else {
         ex=tx-n1x*h1*2;
         ey=ty-n1y*h1*2;
         ez=tz-n1z*h1*2;
@@ -10787,7 +10787,7 @@ SphereBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDe
         if(this.flip){
             s=(shape2);
             b=(shape1);
-        }else{
+        }else {
             s=(shape1);
             b=(shape2);
         }
@@ -10824,38 +10824,38 @@ SphereBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDe
             sx=hw;
         }else if(sx<-hw){
             sx=-hw;
-        }else{
+        }else {
             overlap=1;
         }
         if(sy>hh){
             sy=hh;
         }else if(sy<-hh){
             sy=-hh;
-        }else{
+        }else {
             overlap|=2;
         }
         if(sz>hd){
             sz=hd;
         }else if(sz<-hd){
             sz=-hd;
-        }else{
+        }else {
             overlap|=4;
         }
         if(overlap==7){
             // center of sphere is in the box
             if(sx<0){
                 dx=hw+sx;
-            }else{
+            }else {
                 dx=hw-sx;
             }
             if(sy<0){
                 dy=hh+sy;
-            }else{
+            }else {
                 dy=hh-sy;
             }
             if(sz<0){
                 dz=hd+sz;
-            }else{
+            }else {
                 dz=hd-sz;
             }
             if(dx<dy){
@@ -10866,27 +10866,27 @@ SphereBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDe
                     dx=D[0];
                     dy=D[1];
                     dz=D[2];
-                }else{
+                }else {
                     sx=hw;
                     dx=-D[0];
                     dy=-D[1];
                     dz=-D[2];
                 }
-            }else{
+            }else {
                 len=dz-hd;
                 if(sz<0){
                     sz=-hd;
                     dx=D[6];
                     dy=D[7];
                     dz=D[8];
-                }else{
+                }else {
                     sz=hd;
                     dx=-D[6];
                     dy=-D[7];
                     dz=-D[8];
                 }
             }
-            }else{
+            }else {
                 if(dy<dz){
                     len=dy-hh;
                     if(sy<0){
@@ -10894,20 +10894,20 @@ SphereBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDe
                         dx=D[3];
                         dy=D[4];
                         dz=D[5];
-                    }else{
+                    }else {
                         sy=hh;
                         dx=-D[3];
                         dy=-D[4];
                         dz=-D[5];
                     }
-                }else{
+                }else {
                     len=dz-hd;
                     if(sz<0){
                         sz=-hd;
                         dx=D[6];
                         dy=D[7];
                         dz=D[8];
-                    }else{
+                    }else {
                         sz=hd;
                         dx=-D[6];
                         dy=-D[7];
@@ -10919,7 +10919,7 @@ SphereBoxCollisionDetector.prototype = Object.assign( Object.create( CollisionDe
         cy=pby+sx*D[1]+sy*D[4]+sz*D[7];
         cz=pbz+sx*D[2]+sy*D[5]+sz*D[8];
         manifold.addPoint(psx+rad*dx,psy+rad*dy,psz+rad*dz,dx,dy,dz,len-rad,this.flip);
-        }else{
+        }else {
             cx=pbx+sx*D[0]+sy*D[3]+sz*D[6];
             cy=pby+sx*D[1]+sy*D[4]+sz*D[7];
             cz=pbz+sx*D[2]+sy*D[5]+sz*D[8];
@@ -10958,7 +10958,7 @@ SphereCylinderCollisionDetector.prototype = Object.assign( Object.create( Collis
         if( this.flip ){
             s = shape2;
             c = shape1;
-        }else{
+        }else {
             s = shape1;
             c = shape2;
         }
@@ -11211,36 +11211,36 @@ BoxPlaneCollisionDetector.prototype = Object.assign( Object.create( CollisionDet
                     if( cc.x < 0 ){
                         cc.x = -hw;
                         n.copy( this.dix );
-                    }else{
+                    }else {
                         cc.x = hw;
                         n.subEqual( this.dix );
                     }
-                }else{
+                }else {
                     len = n.z - hd;
                     if( cc.z < 0 ){
                         cc.z = -hd;
                         n.copy( this.diz );
-                    }else{
+                    }else {
                         cc.z = hd;
                         n.subEqual( this.diz );
                     }
                 }
-            }else{
+            }else {
                 if( n.y < n.z ){
                     len = n.y - hh;
                     if( cc.y < 0 ){
                         cc.y = -hh;
                         n.copy( this.diy );
-                    }else{
+                    }else {
                         cc.y = hh;
                         n.subEqual( this.diy );
                     }
-                }else{
+                }else {
                     len = n.z - hd;
                     if( cc.z < 0 ){
                         cc.z = -hd;
                         n.copy( this.diz );
-                    }else{
+                    }else {
                         cc.z = hd;
                         n.subEqual( this.diz );
                     }
@@ -11582,7 +11582,7 @@ Object.assign( World.prototype, {
         if(this.unusedContacts!==null){
             newContact=this.unusedContacts;
             this.unusedContacts=this.unusedContacts.next;
-        }else{
+        }else {
             newContact = new Contact();
         }
         newContact.attach(s1,s2);
@@ -11692,7 +11692,7 @@ Object.assign( World.prototype, {
             if(pair.shape1.id<pair.shape2.id){
                 s1 = pair.shape1;
                 s2 = pair.shape2;
-            }else{
+            }else {
                 s1 = pair.shape2;
                 s2 = pair.shape1;
             }
@@ -11794,7 +11794,7 @@ Object.assign( World.prototype, {
                     base.sleepTime += this.timeStep;
                     if( base.sleepTime > 0.5 ) base.sleep();
                     else base.updatePosition( this.timeStep );
-                }else{
+                }else {
                     base.sleepTime = 0;
                     base.updatePosition( this.timeStep );
                 }
@@ -11916,7 +11916,7 @@ Object.assign( World.prototype, {
                 if( this.callSleep( body ) ){
                     body.sleepTime += this.timeStep;
                     if( body.sleepTime < sleepTime ) sleepTime = body.sleepTime;
-                }else{
+                }else {
                     body.sleepTime = 0;
                     sleepTime = 0;
                     continue;
@@ -11930,7 +11930,7 @@ Object.assign( World.prototype, {
                     this.islandRigidBodies[j].sleep();
                     this.islandRigidBodies[j] = null;// gc
                 }
-            }else{
+            }else {
                 // update positions
                 j = islandNumRigidBodies;
                 while(j--){
@@ -12130,7 +12130,7 @@ Object.assign( World.prototype, {
             max = o.max || 10;
             min = min * invScale;
             max = max * invScale;
-        }else{
+        }else {
             min = o.min || 57.29578;
             max = o.max || 0;
             min = min * _Math.degtorad;
@@ -12200,9 +12200,4 @@ Object.assign( World.prototype, {
 
 } );
 
-// test version
-
-//export { RigidBody } from './core/RigidBody_X.js';
-//export { World } from './core/World_X.js';
-
-export { _Math as Math, Vec3, Quat, Mat33, Shape, Box, Sphere, Cylinder, Plane, Particle, ShapeConfig, LimitMotor, HingeJoint, BallAndSocketJoint, DistanceJoint, PrismaticJoint, SliderJoint, WheelJoint, JointConfig, RigidBody, World, REVISION, BR_NULL, BR_BRUTE_FORCE, BR_SWEEP_AND_PRUNE, BR_BOUNDING_VOLUME_TREE, BODY_NULL, BODY_DYNAMIC, BODY_STATIC, BODY_KINEMATIC, BODY_GHOST, SHAPE_NULL, SHAPE_SPHERE, SHAPE_BOX, SHAPE_CYLINDER, SHAPE_PLANE, SHAPE_PARTICLE, SHAPE_TETRA, JOINT_NULL, JOINT_DISTANCE, JOINT_BALL_AND_SOCKET, JOINT_HINGE, JOINT_WHEEL, JOINT_SLIDER, JOINT_PRISMATIC, AABB_PROX, printError, InfoDisplay };
+export { AABB_PROX, BODY_DYNAMIC, BODY_GHOST, BODY_KINEMATIC, BODY_NULL, BODY_STATIC, BR_BOUNDING_VOLUME_TREE, BR_BRUTE_FORCE, BR_NULL, BR_SWEEP_AND_PRUNE, BallAndSocketJoint, Box, Cylinder, DistanceJoint, HingeJoint, InfoDisplay, JOINT_BALL_AND_SOCKET, JOINT_DISTANCE, JOINT_HINGE, JOINT_NULL, JOINT_PRISMATIC, JOINT_SLIDER, JOINT_WHEEL, JointConfig, LimitMotor, Mat33, _Math as Math, Particle, Plane, PrismaticJoint, Quat, REVISION, RigidBody, SHAPE_BOX, SHAPE_CYLINDER, SHAPE_NULL, SHAPE_PARTICLE, SHAPE_PLANE, SHAPE_SPHERE, SHAPE_TETRA, Shape, ShapeConfig, SliderJoint, Sphere, Vec3, WheelJoint, World, printError };
